@@ -1,0 +1,7 @@
+{
+  "name": "apoyapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
