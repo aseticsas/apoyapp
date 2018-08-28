@@ -7,11 +7,15 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { environment } from './credentials';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
+//pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { InicioPage } from '../pages/inicio/inicio';
+//services
 import { DataServiceProvider } from '../providers/data-service/data-service';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { DataServiceProvider } from '../providers/data-service/data-service';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,6 +40,7 @@ import { DataServiceProvider } from '../providers/data-service/data-service';
     StatusBar,
     SplashScreen,
     DataServiceProvider,
+    AuthProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   //  
     AngularFirestore

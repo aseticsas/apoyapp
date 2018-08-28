@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class DataServiceProvider {
 
   constructor(public firestore: AngularFirestore) {  }
-  public getColeccion(){
-     return this.firestore.collection('categorias').snapshotChanges();
+  public getColeccion(coleccion: string){
+     return this.firestore.collection(coleccion).snapshotChanges();
   }
 }

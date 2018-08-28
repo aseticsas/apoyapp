@@ -20,7 +20,7 @@ export class InicioPage implements OnInit {
   }
   public data_categorias = [];
   ngOnInit() {
-     this.contenido.getColeccion().subscribe((datosSnapshot) => {
+     this.contenido.getColeccion('categorias').subscribe((datosSnapshot) => {
        this.data_categorias = [];
        datosSnapshot.forEach((datoData: any) => {
          this.data_categorias.push({
@@ -28,6 +28,7 @@ export class InicioPage implements OnInit {
            data: datoData.payload.doc.data()
          });
        });
+       console.log(this.data_categorias);
      });
   }
   ionViewDidLoad() {
