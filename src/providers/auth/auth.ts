@@ -27,6 +27,12 @@ export class AuthProvider {
         console.log('Something went wrong:',err.message);
       });
   }
+  logout() 
+  {
+     this.firebaseAuth
+       .auth
+       .signOut();
+  }
 }
 
 

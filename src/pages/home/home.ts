@@ -15,6 +15,9 @@ export class HomePage implements OnInit {
       this.authService.login(this.email, this.password);
       this.email = this.password = '';    
     }
+    logout() {
+      this.authService.logout();
+    }
     goToOtherPage()
     {
     this.navCtrl.push(InicioPage);
