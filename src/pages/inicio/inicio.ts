@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import {DataServiceProvider } from '../../providers/data-service/data-service';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { AuthProvider } from '../../providers/auth/auth';
+import { CategoriasPage } from '../categorias/categorias';
 
 /**
  * Generated class for the InicioPage page.
@@ -18,11 +19,17 @@ import { AuthProvider } from '../../providers/auth/auth';
   templateUrl: 'inicio.html',
 })
 export class InicioPage implements OnInit { 
+  tab1: any;
+  tab2: any;
+  tab3: any;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private contenido: DataServiceProvider, 
               private user: UserServiceProvider,
               public authService: AuthProvider) {
+                this.tab1 = CategoriasPage;
+                this.tab2 = CategoriasPage;
+                this.tab3 = CategoriasPage;
   }
  
   public data_categorias = [];

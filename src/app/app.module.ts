@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { InicioPage } from '../pages/inicio/inicio';
+import { CategoriasPage } from '../pages/categorias/categorias'
 //services
 import { DataServiceProvider } from '../providers/data-service/data-service';
 import { AuthProvider } from '../providers/auth/auth';
@@ -22,7 +23,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   declarations: [
     MyApp,
     HomePage,
-    InicioPage
+    InicioPage,
+    CategoriasPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   entryComponents: [
     MyApp,
     HomePage,
-    InicioPage
+    InicioPage,
+    CategoriasPage
   ],
   providers: [
     StatusBar,
