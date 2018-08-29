@@ -6,6 +6,9 @@ import { environment } from '../../app/credentials';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { DataServiceProvider } from '../../providers/data-service/data-service';
 import { HttpModule } from '@angular/http';
+//import { AuthProvider } from '../../providers/auth/auth';
+//import { AngularFireAuthModule } from 'angularfire2/auth';
+
 @NgModule({
   declarations: [
     InicioPage,
@@ -14,10 +17,13 @@ import { HttpModule } from '@angular/http';
     IonicPageModule.forChild(InicioPage),
     HttpModule,
     AngularFireModule.initializeApp(environment.firebase),
+  //  AngularFireAuthModule
+
   ],
   providers: [
     AngularFirestore,
-    DataServiceProvider
+    DataServiceProvider,
+  //  AuthProvider
   ]
 })
 export class InicioPageModule {}
