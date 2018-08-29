@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
+import { UserServiceProvider } from '../user-service/user-service';
 /*
   Generated class for the AuthProvider provider.
 
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthProvider {
   user: Observable<firebase.User>;
-  constructor(private firebaseAuth: AngularFireAuth) {
+  constructor(private firebaseAuth: AngularFireAuth, private userService: UserServiceProvider) {
     this.user = firebaseAuth.authState;
   }
   login(email: string, password: string) 
@@ -22,6 +23,7 @@ export class AuthProvider {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
+        this.userService.setData(email);
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);

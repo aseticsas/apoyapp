@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import {DataServiceProvider } from '../../providers/data-service/data-service';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the InicioPage page.
@@ -13,17 +15,16 @@ import {DataServiceProvider } from '../../providers/data-service/data-service';
 @IonicPage()
 @Component({
   selector: 'page-inicio',
-  template:`
-  <ion-tabs class="tabs-basic">
-    <ion-tab tabIcon="water" tabTitle="Water" [root]="tab1" ></ion-tab>
-    <ion-tab tabIcon="leaf" tabTitle="Life" [root]="tab2"></ion-tab>
-    <ion-tab tabIcon="flame" tabTitle="Fire" [root]="tab3"></ion-tab>
-  </ion-tabs>`
-  // templateUrl: 'inicio.html',
+  templateUrl: 'inicio.html',
 })
 export class InicioPage implements OnInit { 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private contenido: DataServiceProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private contenido: DataServiceProvider, 
+              private user: UserServiceProvider,
+              public authService: AuthProvider) {
   }
+ 
   public data_categorias = [];
   ngOnInit() {
      this.contenido.getColeccion('categorias').subscribe((datosSnapshot) => {
@@ -36,6 +37,8 @@ export class InicioPage implements OnInit {
        });
        console.log(this.data_categorias);
      });
+     console.log(this.data_categorias);
+     console.log(this.user.getData());
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad InicioPage');

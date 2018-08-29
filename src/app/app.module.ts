@@ -16,6 +16,7 @@ import { InicioPage } from '../pages/inicio/inicio';
 //services
 import { DataServiceProvider } from '../providers/data-service/data-service';
 import { AuthProvider } from '../providers/auth/auth';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AuthProvider } from '../providers/auth/auth';
     AuthProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   //  
-    AngularFirestore
+    AngularFirestore,
+    UserServiceProvider
   ]
 })
 export class AppModule {}
