@@ -15,6 +15,7 @@ export class AuthProvider {
   user: Observable<firebase.User>;
   constructor(private firebaseAuth: AngularFireAuth, private userService: UserServiceProvider) {
     this.user = firebaseAuth.authState;
+    //this.userService.setData();
   }
   login(email: string, password: string) 
   {
@@ -23,7 +24,6 @@ export class AuthProvider {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
-        this.userService.setData(email);
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
