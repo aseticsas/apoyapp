@@ -22,7 +22,10 @@ export class DataServiceProvider {
   public getCategoria(id:number){
     return this.firestore.collection('categorias', idcategoria => idcategoria.where('idcategoria','==',id)).snapshotChanges()
   }
-  public getProyectos(data_categoria: number){
-    return this.firestore.collection('proyectos', categoria => categoria.where('categoria1','==',data_categoria)).snapshotChanges();
+  public getProyectos(data_categoria: number, data_filtro: string){
+    return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
+  }
+  public getProyectos2(data_categoria: number, data_filtro: string){
+    return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
   }
 }

@@ -23,13 +23,14 @@ export class CategoriasPage implements OnInit {
   }
 
   public proyectos_categoria1=[];
+  public proyectos_categoria2=[];
   public categoriaid: number;
   public datos_categoria=[];
   ngOnInit() {
 
     this.categoriaid=3;
 
-    this.contenido.getProyectos(this.categoriaid).subscribe((proyectosSnapShot)=>{
+    this.contenido.getProyectos(this.categoriaid,'categoria1').subscribe((proyectosSnapShot)=>{
       this.proyectos_categoria1=[];
       proyectosSnapShot.forEach((proyectoData:any)=>{
         this.proyectos_categoria1.push({
@@ -37,7 +38,17 @@ export class CategoriasPage implements OnInit {
           data: proyectoData.payload.doc.data()
         });//cierra el push
       });//cierra foreach 
-      console.log(this.proyectos_categoria1);
+    });// cierra subscribe
+
+    this.contenido.getProyectos2(this.categoriaid,'categoria2').subscribe((proyectos2SnapShot)=>{
+      this.proyectos_categoria2=[];
+      proyectos2SnapShot.forEach((proyecto2Data:any)=>{
+        this.proyectos_categoria2.push({
+          id: proyecto2Data.payload.doc.id,
+          data: proyecto2Data.payload.doc.data()
+        });//cierra el push
+      });//cierra foreach 
+      //console.log(this.proyectos_categoria1);
     });// cierra subscribe
 
     this.contenido.getCategoria(this.categoriaid).subscribe((categoriaSnapShot)=>{

@@ -23,5 +23,13 @@
           <p>{{proyecto.data.dproyecto}}</p>
           <button ion-button clear item-end>Ver</button>
         </ion-item>
+        <ion-item *ngFor="let proyecto2 of proyectos_categoria2">
+            <ion-thumbnail item-start>
+              <img src="{{proyecto2.data.iproyecto}}">
+            </ion-thumbnail>
+            <h2>{{proyecto2.data.nproyecto}}</h2>
+            <p>{{proyecto2.data.dproyecto}}</p>
+            <button ion-button clear item-end>Ver</button>
+        </ion-item>
       </ion-list>
   </ion-content>
