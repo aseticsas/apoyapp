@@ -14,4 +14,15 @@ export class DataServiceProvider {
   public getColeccion(coleccion: string){
      return this.firestore.collection(coleccion).snapshotChanges();
   }
+  public getCategorias(data_email: string){
+    return this.firestore.collection('personas')
+    .doc('d_benefactores')
+    .collection('c_usuarios', email => email.where('email','==',data_email)).snapshotChanges();
+  }
+  public getCategoria(id:number){
+    return this.firestore.collection('categorias', idcategoria => idcategoria.where('idcategoria','==',id)).snapshotChanges()
+  }
+  public getProyectos(data_categoria: number){
+    return this.firestore.collection('proyectos', categoria => categoria.where('categoria1','==',data_categoria)).snapshotChanges();
+  }
 }

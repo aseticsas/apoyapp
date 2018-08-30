@@ -34,18 +34,28 @@ export class InicioPage implements OnInit {
  
   public data_categorias = [];
   ngOnInit() {
-     this.contenido.getColeccion('categorias').subscribe((datosSnapshot) => {
-       this.data_categorias = [];
-       datosSnapshot.forEach((datoData: any) => {
-         this.data_categorias.push({
-           id: datoData.payload.doc.id,
-           data: datoData.payload.doc.data()
-         });
-       });
-       console.log(this.data_categorias);
-     });
-     console.log(this.data_categorias);
-     console.log(this.user.getData());
+    this.contenido.getCategorias('jalexandrasf@gmail.com').subscribe((categoriasSnapshot)=> {
+      this.data_categorias = [];
+      categoriasSnapshot.forEach((datoData: any) => {
+        this.data_categorias.push({
+          id: datoData.payload.doc.id,
+          data: datoData.payload.doc.data()
+        });
+      });
+      console.log(this.data_categorias);
+    });
+    //console.log("hola",this.data_categorias['data'].categorias[1]);
+    //  this.contenido.getColeccion('categorias').subscribe((datosSnapshot) => {
+    //    this.data_categorias = [];
+    //    datosSnapshot.forEach((datoData: any) => {
+    //      this.data_categorias.push({
+    //        id: datoData.payload.doc.id,
+    //        data: datoData.payload.doc.data()
+    //      });
+    //    });
+    //  });
+    //  console.log(this.data_categorias);
+    //  console.log(this.user.getData());
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad InicioPage');
