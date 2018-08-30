@@ -15,7 +15,7 @@ export class AuthProvider {
   user: Observable<firebase.User>;
   constructor(private firebaseAuth: AngularFireAuth, private userService: UserServiceProvider) {
     this.user = firebaseAuth.authState;
-    //this.userService.setData();
+    console.log(this.user, "auth.ts")
   }
   login(email: string, password: string) 
   {

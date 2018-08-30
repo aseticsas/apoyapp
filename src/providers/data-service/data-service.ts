@@ -7,6 +7,12 @@ import { Observable } from 'rxjs';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+// interface Categoria {
+//   cid: string;
+//   cnombre: string;
+//   cimage: string;
+// }
+
 @Injectable()
 export class DataServiceProvider {
 
@@ -27,5 +33,8 @@ export class DataServiceProvider {
   }
   public getProyectos2(data_categoria: number, data_filtro: string){
     return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
+  }
+  public getProyecto(id: string){
+    return this.firestore.collection('proyectos').doc(id).snapshotChanges();
   }
 }

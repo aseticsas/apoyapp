@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DataServiceProvider } from '../../providers/data-service/data-service';
-
+import { ProyectoPage } from '../proyecto/proyecto';
 /**
  * Generated class for the CategoriasPage page.
  *
@@ -68,4 +68,7 @@ export class CategoriasPage implements OnInit {
     console.log('ionViewDidLoad CategoriasPage');
   }
 
+  goToCategory(id){
+    this.navCtrl.push(ProyectoPage, {id: id});
+  }
 }

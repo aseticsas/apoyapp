@@ -14,6 +14,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { InicioPage } from '../pages/inicio/inicio';
 import { CategoriasPage } from '../pages/categorias/categorias'
+import { ProyectoPage } from '../pages/proyecto/proyecto'
 //services
 import { DataServiceProvider } from '../providers/data-service/data-service';
 import { AuthProvider } from '../providers/auth/auth';
@@ -24,7 +25,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     MyApp,
     HomePage,
     InicioPage,
-    CategoriasPage
+    CategoriasPage,
+    ProyectoPage
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     MyApp,
     HomePage,
     InicioPage,
+    ProyectoPage,
     CategoriasPage
   ],
   providers: [
