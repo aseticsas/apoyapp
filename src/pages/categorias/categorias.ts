@@ -30,6 +30,7 @@ export class CategoriasPage implements OnInit {
   public datos_categoria=[];
   ngOnInit() {
 
+    console.log("b")
     this.categoriaid=3;
 
    
@@ -68,7 +69,9 @@ export class CategoriasPage implements OnInit {
 
   }
   ionViewDidLoad() {
+    console.log("a")
     let idcategoria= this.navParams.data;
+    console.log(idcategoria,"id=");
     this.contenido.getProyectos2(idcategoria).subscribe((proyectosSnapShot)=>{
       this.proyectos_categoria=[];
       proyectosSnapShot.forEach((proyectoData:any)=>{

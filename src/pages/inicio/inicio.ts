@@ -19,10 +19,10 @@ import { CategoriasPage } from '../categorias/categorias';
   templateUrl: 'inicio.html',
 })
 export class InicioPage implements OnInit { 
-  cat1= {
-    nombre : "categoria1",
-    icono : "water",
-    id: 0
+  cat1: {
+    nombre : string
+    icono : string,
+    id: number
   };
   cat2= {
     nombre : "categoria1",
@@ -76,9 +76,11 @@ export class InicioPage implements OnInit {
           })//cierra el foreach
           //console.log(this.categoria1[0].data.ncategoria);
 
-          this.cat1.nombre = this.categoria1[0].data.ncategoria;
-          this.cat1.icono = this.categoria1[0].data.icategoria;     
-          this.cat1.id = this.categoria1[0].data.idcategoria;     
+          this.cat1 = {
+            nombre: this.categoria1[0].data.ncategoria,
+            icono: this.categoria1[0].data.icategoria,
+            id:  this.categoria1[0].data.idcategoria
+          }
         })//cierra el subscribe
         this.contenido.getCategoria(this.data_categorias[0].data.categorias[1]).subscribe((categoria2Snapshot)=>{
           this.categoria2 = [];
