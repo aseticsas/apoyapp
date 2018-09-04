@@ -38,9 +38,14 @@ export class DataServiceProvider {
     return this.firestore.collection('proyectos').doc(id).snapshotChanges();
   }
   public getDonaciones(id: string){
-    return this.firestore.collection('proyectos').doc(id).collection('donaciones').snapshotChanges();
+    return this.firestore.collection('donaciones', proyecto => proyecto.where('proyecto','==',id)).snapshotChanges();
+    //return this.firestore.collection('proyectos').doc(id).collection('donaciones').snapshotChanges();
   }
-  public getDonacion(id: string, idp: string){
-    return this.firestore.collection('proyectos').doc(idp).collection('donaciones').doc(id).snapshotChanges();
+  public getDonacion(id: string){
+    return this.firestore.collection('donaciones').doc(id).snapshotChanges();
+    //return this.firestore.collection('proyectos').doc(idp).collection('donaciones').doc(id).snapshotChanges();
+  }
+  public getDonaciones2(data_categoria: number){
+    return this.firestore.collection('donaciones', p => p.where(`categorias.${data_categoria}`, '==', true)).snapshotChanges();
   }
 }

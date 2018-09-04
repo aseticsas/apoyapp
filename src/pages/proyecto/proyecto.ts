@@ -51,7 +51,7 @@ export class ProyectoPage implements OnInit {
       // console.log(this.data_proyecto);
       // });
   }
-  goToDonacion(id,idp){
-    this.navCtrl.push(DonacionesPage, {id: id, idp: idp});
+  goToDonacion(id){
+    this.navCtrl.push(DonacionesPage, {id: id});
   }
 }

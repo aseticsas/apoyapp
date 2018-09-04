@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DataServiceProvider } from '../../providers/data-service/data-service';
 import { ProyectoPage } from '../proyecto/proyecto';
+import { DonacionesPage }from '../donaciones/donaciones';
 /**
  * Generated class for the CategoriasPage page.
  *
@@ -23,6 +24,7 @@ export class CategoriasPage implements OnInit {
   }
 
   public proyectos_categoria=[];
+  public donaciones_categoria=[];
   // public proyectos_categoria1=[];
   // public proyectos_categoria2=[];
   // public proyectos_categoria3=[];
@@ -82,6 +84,16 @@ export class CategoriasPage implements OnInit {
       });//cierra foreach 
     });// cierra subscribe
 
+    this.contenido.getDonaciones2(idcategoria).subscribe((donacionesSnapShot)=>{
+      this.donaciones_categoria=[];
+      donacionesSnapShot.forEach((donacionData:any)=>{
+        this.donaciones_categoria.push({
+          id: donacionData.payload.doc.id,
+          data: donacionData.payload.doc.data()
+        });//cierra el push
+      });//cierra foreach 
+    });// c
+
     this.contenido.getCategoria(idcategoria).subscribe((categoriaSnapShot)=>{
       this.datos_categoria=[];
       categoriaSnapShot.forEach((categoriaData:any)=>{
@@ -97,5 +109,8 @@ export class CategoriasPage implements OnInit {
 
   goToCategory(id){
     this.navCtrl.push(ProyectoPage, {id: id});
+  }
+  goToDonacion(id){
+    this.navCtrl.push(DonacionesPage, {id: id});
   }
 }
