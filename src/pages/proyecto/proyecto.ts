@@ -23,6 +23,7 @@ export class ProyectoPage implements OnInit {
   }
   public data_proyecto;
   public data_donaciones;
+  public id_proyecto;
   ngOnInit() {
 
     
@@ -31,8 +32,10 @@ export class ProyectoPage implements OnInit {
     let a = this.navParams.get('id');
     //console.log(a, 'ionViewDidLoad ProyectoPage');
     this.data_proyecto = this.contenido.getProyecto(a);
-    this.data_proyecto.subscribe(b=>console.log(b, b.payload.data()))
-    console.log(this.data_proyecto, "proy.ts");
+    this.data_proyecto.subscribe(b=>console.log(b, b.payload.data()));
+
+    this.id_proyecto = a;
+    // console.log(this.data_proyecto, "proy.ts");
 
     this.contenido.getDonaciones(a).subscribe((donacionSnapShot)=>{
       this.data_donaciones=[];
@@ -48,7 +51,7 @@ export class ProyectoPage implements OnInit {
       // console.log(this.data_proyecto);
       // });
   }
-  goToDonacion(id){
-    this.navCtrl.push(DonacionesPage, {id: id});
+  goToDonacion(id,idp){
+    this.navCtrl.push(DonacionesPage, {id: id, idp: idp});
   }
 }

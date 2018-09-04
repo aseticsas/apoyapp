@@ -14,5 +14,26 @@
 
 
 <ion-content padding>
-  {{ (data_donacion | async)?.payload.data()['ndonacion'] }}
+  <ion-card>
+    <img src="{{ (data_donacion | async)?.payload.data()['idonacion'] }}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ (data_donacion | async)?.payload.data()['ndonacion'] }}
+        </ion-card-title>
+        <h1>0 de {{ (data_donacion | async)?.payload.data()['cantidad'] }} {{ (data_donacion | async)?.payload.data()['unidad'] }}</h1>
+      <p>
+        {{ (data_donacion | async)?.payload.data()['ddonacion'] }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <p style="text-align:center">
+    <button ion-button color="default" icon-start>
+      <ion-icon name='hand'></ion-icon>
+      Especie
+    </button>
+    <button ion-button color="secondary" outline icon-start>
+      <ion-icon name='cash' is-active="false"></ion-icon>
+      Dinero
+    </button>
+  </p>
 </ion-content>

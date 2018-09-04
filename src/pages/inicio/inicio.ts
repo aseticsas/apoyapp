@@ -21,15 +21,18 @@ import { CategoriasPage } from '../categorias/categorias';
 export class InicioPage implements OnInit { 
   cat1= {
     nombre : "categoria1",
-    icono : "water"
+    icono : "water",
+    id: 0
   };
   cat2= {
     nombre : "categoria1",
-    icono : "water"
+    icono : "water",
+    id: 0
   };
   cat3= {
     nombre : "categoria1",
-    icono : "water"
+    icono : "water",
+    id: 0
   };
   tab1: any;
   tab2: any;
@@ -72,8 +75,10 @@ export class InicioPage implements OnInit {
             });//cierra el push
           })//cierra el foreach
           //console.log(this.categoria1[0].data.ncategoria);
+
           this.cat1.nombre = this.categoria1[0].data.ncategoria;
           this.cat1.icono = this.categoria1[0].data.icategoria;     
+          this.cat1.id = this.categoria1[0].data.idcategoria;     
         })//cierra el subscribe
         this.contenido.getCategoria(this.data_categorias[0].data.categorias[1]).subscribe((categoria2Snapshot)=>{
           this.categoria2 = [];
@@ -86,6 +91,7 @@ export class InicioPage implements OnInit {
           //console.log(this.categoria1[0].data.ncategoria);
           this.cat2.nombre = this.categoria2[0].data.ncategoria;
           this.cat2.icono = this.categoria2[0].data.icategoria;     
+          this.cat2.id = this.categoria2[0].data.idcategoria;     
         })//cierra el subscribe
         this.contenido.getCategoria(this.data_categorias[0].data.categorias[2]).subscribe((categoria3Snapshot)=>{
           this.categoria3 = [];
@@ -98,6 +104,7 @@ export class InicioPage implements OnInit {
           //console.log(this.categoria1[0].data.ncategoria);
           this.cat3.nombre = this.categoria3[0].data.ncategoria;
           this.cat3.icono = this.categoria3[0].data.icategoria;     
+          this.cat3.id = this.categoria3[0].data.idcategoria;     
         })//cierra el subscribe
       });
     });

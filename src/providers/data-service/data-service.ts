@@ -31,11 +31,8 @@ export class DataServiceProvider {
   public getProyectos(data_categoria: number, data_filtro: string){
     return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
   }
-  public getProyectos2(data_categoria: number, data_filtro: string){
-    return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
-  }
-  public getProyectos3(data_categoria: number, data_filtro: string){
-    return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
+  public getProyectos2(data_categoria: number){
+    return this.firestore.collection('proyectos', p => p.where(`categorias.${data_categoria}`, '==', true)).snapshotChanges();
   }
   public getProyecto(id: string){
     return this.firestore.collection('proyectos').doc(id).snapshotChanges();
@@ -43,7 +40,7 @@ export class DataServiceProvider {
   public getDonaciones(id: string){
     return this.firestore.collection('proyectos').doc(id).collection('donaciones').snapshotChanges();
   }
-  public getDonacion(id: string){
-    return this.firestore.collection('proyectos').doc('gIMoRoCluH2dTtsiP66Q').collection('donaciones').doc(id).snapshotChanges();
+  public getDonacion(id: string, idp: string){
+    return this.firestore.collection('proyectos').doc(idp).collection('donaciones').doc(id).snapshotChanges();
   }
 }

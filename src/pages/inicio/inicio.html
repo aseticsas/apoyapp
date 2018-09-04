@@ -14,10 +14,9 @@
 
 
 <ion-content padding>
-  
     <ion-tabs class="tabs-basic">
-        <ion-tab  tabIcon="{{cat1.icono}}" tabTitle="{{cat1.nombre}}" [root]="tab1" ></ion-tab>
-        <ion-tab  tabIcon="{{cat2.icono}}" tabTitle="{{cat2.nombre}}" [root]="tab2" ></ion-tab>
-        <ion-tab  tabIcon="{{cat3.icono}}" tabTitle="{{cat3.nombre}}" [root]="tab3" ></ion-tab>
+        <ion-tab  tabIcon="{{cat1.icono}}" tabTitle="{{cat1.nombre}}" [root]="tab1" [rootParams]="cat1.id"></ion-tab>
+        <ion-tab  tabIcon="{{cat2.icono}}" tabTitle="{{cat2.nombre}}" [root]="tab2" [rootParams]="cat2.id"></ion-tab>
+        <ion-tab  tabIcon="{{cat3.icono}}" tabTitle="{{cat3.nombre}}" [root]="tab3" [rootParams]="cat3.id"></ion-tab>
     </ion-tabs>
 </ion-content>

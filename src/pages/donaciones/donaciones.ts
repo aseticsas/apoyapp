@@ -27,7 +27,8 @@ export class DonacionesPage implements OnInit{
   }
   ionViewDidLoad() {
     let iddonacion= this.navParams.get('id');
-    this.data_donacion=this.contenido.getDonacion(iddonacion);
+    let idproyecto= this.navParams.get('idp');
+    this.data_donacion=this.contenido.getDonacion(iddonacion,idproyecto);
     this.data_donacion.subscribe(b=>console.log(b, b.payload.data()));
     console.log(this.data_donacion,"data_dona");
   }
