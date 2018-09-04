@@ -24,6 +24,7 @@ export class CategoriasPage implements OnInit {
 
   public proyectos_categoria1=[];
   public proyectos_categoria2=[];
+  public proyectos_categoria3=[];
   public categoriaid: number;
   public datos_categoria=[];
   ngOnInit() {
@@ -50,7 +51,16 @@ export class CategoriasPage implements OnInit {
       });//cierra foreach 
       //console.log(this.proyectos_categoria1);
     });// cierra subscribe
-
+    this.contenido.getProyectos3(this.categoriaid,'categoria3').subscribe((proyectos3SnapShot)=>{
+      this.proyectos_categoria3=[];
+      proyectos3SnapShot.forEach((proyecto3Data:any)=>{
+        this.proyectos_categoria3.push({
+          id: proyecto3Data.payload.doc.id,
+          data: proyecto3Data.payload.doc.data()
+        });//cierra el push
+      });//cierra foreach 
+      //console.log(this.proyectos_categoria1);
+    });// cierra subscribe
     this.contenido.getCategoria(this.categoriaid).subscribe((categoriaSnapShot)=>{
       this.datos_categoria=[];
       categoriaSnapShot.forEach((categoriaData:any)=>{
@@ -59,7 +69,7 @@ export class CategoriasPage implements OnInit {
           data: categoriaData.payload.doc.data()
         });//cierra el push
       });//cierra foreach 
-      console.log(this.datos_categoria);
+      console.log(this.proyectos_categoria2);
     });// cierra subscribe
 
   }

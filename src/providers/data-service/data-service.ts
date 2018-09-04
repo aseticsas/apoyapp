@@ -34,7 +34,16 @@ export class DataServiceProvider {
   public getProyectos2(data_categoria: number, data_filtro: string){
     return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
   }
+  public getProyectos3(data_categoria: number, data_filtro: string){
+    return this.firestore.collection('proyectos', categoria => categoria.where(data_filtro,'==',data_categoria)).snapshotChanges();
+  }
   public getProyecto(id: string){
     return this.firestore.collection('proyectos').doc(id).snapshotChanges();
+  }
+  public getDonaciones(id: string){
+    return this.firestore.collection('proyectos').doc(id).collection('donaciones').snapshotChanges();
+  }
+  public getDonacion(id: string){
+    return this.firestore.collection('proyectos').doc('gIMoRoCluH2dTtsiP66Q').collection('donaciones').doc(id).snapshotChanges();
   }
 }

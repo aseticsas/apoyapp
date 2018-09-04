@@ -15,21 +15,31 @@
   <ion-content padding>
     <ion-item-divider color="orange">Proyectos</ion-item-divider>
     <ion-list>
-        <ion-item *ngFor="let proyecto of proyectos_categoria1">
-          <ion-thumbnail item-start>
-            <img src="{{proyecto.data.iproyecto}}">
-          </ion-thumbnail>
-          <h2>{{proyecto.data.nproyecto}}</h2>
-          <p>{{proyecto.data.dproyecto}}</p>
-          <button ion-button clear item-end (click)=goToCategory(proyecto.id)>Ver</button>
-        </ion-item>
-        <ion-item *ngFor="let proyecto2 of proyectos_categoria2">
-            <ion-thumbnail item-start>
-              <img src="{{proyecto2.data.iproyecto}}">
-            </ion-thumbnail>
-            <h2>{{proyecto2.data.nproyecto}}</h2>
-            <p>{{proyecto2.data.dproyecto}}</p>
-            <button ion-button clear item-end (click)=goToCategory(proyecto2.id)>Ver</button>
-        </ion-item>
-      </ion-list>
+      <ion-item *ngFor="let proyecto of proyectos_categoria1">
+        <ion-thumbnail item-start>
+          <img src="{{proyecto.data.iproyecto}}">
+        </ion-thumbnail>
+        <h2>{{proyecto.data.nproyecto}}</h2>
+        <p>{{proyecto.data.dproyecto}}</p>
+        <button ion-button clear item-end (click)=goToCategory(proyecto.id)>Ver</button>
+      </ion-item>
+      <ion-item *ngFor="let proyecto2 of proyectos_categoria2">
+        <ion-thumbnail item-start>
+          <img src="{{proyecto2.data.iproyecto}}">
+        </ion-thumbnail>
+        <h2>{{proyecto2.data.nproyecto}}</h2>
+        <p>{{proyecto2.data.dproyecto}}</p>
+        <button ion-button clear item-end (click)=goToCategory(proyecto2.id)>Ver</button>
+      </ion-item>
+      <ion-item *ngFor="let proyecto3 of proyectos_categoria3">
+        <ion-thumbnail item-start>
+          <img src="{{proyecto3.data.iproyecto}}">
+        </ion-thumbnail>
+        <h2>{{proyecto3.data.nproyecto}}</h2>
+        <p>{{proyecto3.data.dproyecto}}</p>
+        <button ion-button clear item-end (click)=goToCategory(proyecto3.id)>Ver</button>
+      </ion-item>
+    </ion-list>
+    <ion-item-divider color="orange">Donaciones</ion-item-divider>
+  
   </ion-content>

@@ -1,18 +1,27 @@
-<!--
-  Generated template for the ProyectoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>proyecto</ion-title>
+    <ion-title>Proyectos</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-  <ion-title>{{ (data_proyecto | async)?.payload.data()['nproyecto'] }}</ion-title>
+  <ion-card>
+    <img src="{{ (data_proyecto | async)?.payload.data()['iproyecto'] }}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ (data_proyecto | async)?.payload.data()['nproyecto'] }}
+        </ion-card-title>
+      <p>{{ (data_proyecto | async)?.payload.data()['dproyecto'] }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-item-divider color="orange">Donaciones</ion-item-divider>
+    <ion-list>
+      <ion-item *ngFor="let donacion of data_donaciones">
+        <ion-thumbnail item-start>
+          <img src="{{donacion.data.idonacion}}">
+        </ion-thumbnail>
+        <h2>{{donacion.data.ndonacion}}</h2>
+        <p>{{donacion.data.cantidad}} {{donacion.data.unidad}}</p>
+        <button ion-button clear item-end (click)=goToDonacion(donacion.id)>Ver</button>
+      </ion-item>
+    </ion-list>
 </ion-content>
