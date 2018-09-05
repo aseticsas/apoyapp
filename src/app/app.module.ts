@@ -8,6 +8,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { environment } from './credentials';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { GoogleMaps } from "@ionic-native/google-maps";
 
 //pages
 import { MyApp } from './app.component';
@@ -16,6 +17,7 @@ import { InicioPage } from '../pages/inicio/inicio';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { ProyectoPage } from '../pages/proyecto/proyecto';
 import { DonacionesPage } from '../pages/donaciones/donaciones';
+import { EspeciePage } from '../pages/especie/especie';
 //services
 import { DataServiceProvider } from '../providers/data-service/data-service';
 import { AuthProvider } from '../providers/auth/auth';
@@ -28,7 +30,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     InicioPage,
     CategoriasPage,
     ProyectoPage,
-    DonacionesPage
+    DonacionesPage,
+    EspeciePage
   ],
   imports: [
     BrowserModule,
@@ -44,13 +47,15 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     InicioPage,
     ProyectoPage,
     CategoriasPage,
-    DonacionesPage
+    DonacionesPage,
+    EspeciePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DataServiceProvider,
     AuthProvider,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   //  
     AngularFirestore,
