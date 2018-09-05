@@ -16,11 +16,14 @@ import { DonacionesPage }from '../donaciones/donaciones';
   templateUrl: 'categorias.html',
 })
 export class CategoriasPage implements OnInit {
-
+  items = [];
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private contenido: DataServiceProvider
             ) {
+    for (let i = 0; i < 2; i++) {
+      this.items.push(this.items.length);
+    }
   }
 
   public proyectos_categoria=[];
@@ -30,6 +33,7 @@ export class CategoriasPage implements OnInit {
   // public proyectos_categoria3=[];
   public categoriaid: number;
   public datos_categoria=[];
+
   ngOnInit() {
 
     console.log("b")
@@ -112,5 +116,17 @@ export class CategoriasPage implements OnInit {
   }
   goToDonacion(id){
     this.navCtrl.push(DonacionesPage, {id: id});
+  }
+  doInfinite(infiniteScroll) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      for (let i = 0; i < 2; i++) {
+        this.items.push( this.items.length );
+      }
+
+      console.log('Async operation has ended');
+      infiniteScroll.complete();
+    }, 500);
   }
 }
