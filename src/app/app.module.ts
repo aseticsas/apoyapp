@@ -8,7 +8,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { environment } from './credentials';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { GoogleMaps } from "@ionic-native/google-maps";
 
 //pages
 import { MyApp } from './app.component';
@@ -55,7 +54,6 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     SplashScreen,
     DataServiceProvider,
     AuthProvider,
-    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   //  
     AngularFirestore,
